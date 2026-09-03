@@ -1,0 +1,65 @@
+{
+  "name": "direct-link-resolver",
+  "version": "0.1.0",
+  "description": "Resolve and download the direct file link from any public, legal URL — following redirects, bypassing intermediary download pages, and extracting links embedded in HTML.",
+  "keywords": [
+    "direct-link",
+    "resolver",
+    "download",
+    "link-resolver",
+    "redirect",
+    "html",
+    "scraper",
+    "cli"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "author": "direct-link-resolver contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MahdyNazari/direct-link-resolver.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./node": {
+      "types": "./dist/node/file-sink.d.ts",
+      "import": "./dist/node/file-sink.js",
+      "require": "./dist/node/file-sink.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "direct-link-resolver": "./dist/cli/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.1.0"
+  }
+}
