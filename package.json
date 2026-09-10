@@ -1,6 +1,6 @@
 {
   "name": "direct-link-resolver",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Resolve and download the direct file link from any public, legal URL — following redirects, bypassing intermediary download pages, and extracting links embedded in HTML.",
   "keywords": [
     "direct-link",
