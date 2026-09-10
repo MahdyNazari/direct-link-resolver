@@ -3,6 +3,7 @@ import { Command as Program } from 'commander';
 import { downloadFile, resolveLink } from '../index.js';
 import { createFileSink } from '../node/file-sink.js';
 import type { DownloadProgress, ResolvedLink } from '../index.js';
+import { formatBytes } from '../core/format.js';
 
 /**
  * Commander v12 calls an action handler as `(operands…, options, command)`.
@@ -88,7 +89,7 @@ async function downloadToString(url: string, flags: DownloadFlags): Promise<void
   });
   process.stdout.write(
     `Downloaded ${result.bytes} bytes to ${flags.output}` +
-      (result.size !== undefined ? ` (of ${result.size} bytes)` : '') +
+      (result.size !== undefined ? ` (of ${formatBytes(result.size)})` : '') +
       '\n',
   );
   process.stdout.write(`Direct URL: ${result.resolvedLink.url}\n`);
@@ -97,7 +98,7 @@ async function downloadToString(url: string, flags: DownloadFlags): Promise<void
 function printHuman(link: ResolvedLink): void {
   writeLine(`URL:         ${link.url}`);
   if (link.filename !== undefined) writeLine(`Filename:    ${link.filename}`);
-  if (link.size !== undefined) writeLine(`Size:        ${link.size} bytes`);
+  if (link.sizeFormatted !== undefined) writeLine(`Size:        ${link.sizeFormatted} (${link.size} bytes)`);
   if (link.contentType !== undefined) writeLine(`Content-Type: ${link.contentType}`);
   writeLine(`Resolved by: ${link.resolvedBy}`);
   if (link.via.length > 0) writeLine(`Via:         ${link.via.join(' -> ')}`);
