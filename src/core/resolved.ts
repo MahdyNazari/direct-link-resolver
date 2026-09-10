@@ -1,5 +1,6 @@
 import { extractFilename } from './url.js';
 import type { NormalizedHeaders, ResolvedLink } from './types.js';
+import { formatBytes } from './format.js';
 
 /**
  * Strip `;charset=…` and friends from a Content-Type value, returning the bare
@@ -41,7 +42,10 @@ export function makeDirectLink(input: DirectLinkInput): ResolvedLink {
     redirects: input.redirects,
   };
   if (contentType !== undefined) link.contentType = contentType;
-  if (size !== undefined) link.size = size;
+  if (size !== undefined) {
+    link.size = size;
+    link.sizeFormatted = formatBytes(size);
+  };
   if (filename !== undefined) link.filename = filename;
   return link;
 }

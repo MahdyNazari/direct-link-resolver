@@ -41,3 +41,6 @@ export type {
   ResolveResult,
   PageDocument,
 } from './core/resolvers/resolver.js';
+
+export { formatBytes } from './core/format.js'
+export type { FormatBytesOptions } from './core/format.js'
