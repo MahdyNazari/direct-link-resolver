@@ -19,6 +19,8 @@ export interface ResolvedLink {
   filename?: string;
   /** Total size in bytes, when the server declares Content-Length. */
   size?: number;
+  /** Human-readable size (e.g. "2.4 MB"), derived from `size` when present. */
+  sizeFormatted?: string;
   /** MIME type of the final resource, when declared via Content-Type. */
   contentType?: string;
   /** Normalized headers from the final response. */
