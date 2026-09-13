@@ -1,5 +1,8 @@
 # direct-link-resolver
 
+> This package is part of the [direct-link-resolver monorepo](../../README.md).
+> For the Android companion app, see [`apps/mobile`](../../apps/mobile).
+
 Resolve **any public, legal URL** to its terminal, directly downloadable file link, and optionally stream that file to disk. It follows multi-step HTTP redirects, peeks through plain intermediary "download" pages that embed the real link, and extracts a direct file link from a page's HTML — then, if you ask it to, downloads the file by **streaming** it (it never buffers the whole file in memory).
 
 - **Runtime-agnostic core** — built on the standard WHATWG `fetch` API, so it runs on Node 18+, browsers, and Cloudflare Workers.
