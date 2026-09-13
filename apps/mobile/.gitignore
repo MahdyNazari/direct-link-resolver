@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# Capacitor / Android build outputs (the android/ project itself IS committed)
+android/app/build
+android/build
+android/.gradle
+android/local.properties
+android/**/build
+android/.idea
+android/build-log.txt
