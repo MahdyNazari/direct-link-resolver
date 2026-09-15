@@ -13,6 +13,7 @@ interface NormalizedOptions {
   fetch: NonNullable<CoreOptions['fetch']>;
   maxRedirects: number;
   timeoutMs?: number;
+  signal?: AbortSignal;
 }
 
 /**
@@ -109,6 +110,7 @@ function normalizeOptions(options: ResolveOptions): NormalizedOptions {
     fetch: options.fetch ?? defaultFetch,
     maxRedirects: options.maxRedirects ?? 10,
     timeoutMs: options.timeoutMs,
+    signal: options.signal,
   };
 }
 
