@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-09-15
 ### Added
 - Android app (`apps/mobile`) built with Capacitor + React, providing a
   graphical interface to `resolveLink`/`downloadFile`.
@@ -15,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `appendFile` (subsequent chunks) to preserve constant-memory downloads on
   Android, writing into the app-scoped `Directory.Documents` (no runtime
   storage permission required).
+
+### Fixed
+- `resolveLink` now forwards an external `AbortSignal` to requests made during
+  resolution. Previously the signal was silently dropped by option
+  normalization, so cancellation only worked during the download phase, not
+  while resolving.
 
 ## [0.2.0] - 2026-09-10
 ### Added
@@ -41,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README with library usage, CLI usage, architecture notes, and a disclaimer
   restricting the tool to public/legal content.
 
-[Unreleased]: https://github.com/MahdyNazari/direct-link-resolver/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/MahdyNazari/direct-link-resolver/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/MahdyNazari/direct-link-resolver/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/MahdyNazari/direct-link-resolver/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/MahdyNazari/direct-link-resolver/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/MahdyNazari/direct-link-resolver/releases/tag/v0.1.0
